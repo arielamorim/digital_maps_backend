@@ -119,4 +119,25 @@ class LocationTest extends TestCase
 
         $response->assertStatus(204);
     }
+
+    public function test_get_locations_by_proximity()
+    {
+        Location::factory(4)->create();
+
+        $response = $this->getJson('/api/proximity/locations?X=5&Y=10&hour=12:00');
+
+        $response->assertStatus(200);
+        $response->assertJsonCount(4);
+
+    }
+
+    public function test_get_locations_by_proximity_missing_params()
+    {
+        Location::factory(4)->create();
+
+        $response = $this->getJson('/api/proximity/locations?X=5');
+
+        $response->assertStatus(400);
+
+    }
 }

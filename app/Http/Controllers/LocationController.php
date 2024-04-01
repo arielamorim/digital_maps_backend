@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helper\LocationHelper;
 use App\Models\Location;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
@@ -10,7 +11,10 @@ use Mockery\Exception;
 
 class LocationController extends Controller
 {
-    public function __construct( private Location $location ){}
+    public function __construct(
+        private Location $location,
+        private LocationHelper $helper
+    ){}
 
     /**
      * Show all locations.
@@ -44,17 +48,21 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make( $request->all(), [
-            'name' => 'required|string|max:255',
-        ]);
+        try{
+            $validator = Validator::make( $request->all(), [
+                'name' => 'required|string|max:255',
+            ]);
 
-        if ( $validator->fails() ) {
-            return response()->json( $validator->errors(), 422 );
+            if ( $validator->fails() ) {
+                return response()->json( $validator->errors(), 422 );
+            }
+
+            $location = $this->location->create( $request->all() );
+
+            return response()->json( $location, 201 );
+        } catch ( Exception $e ) {
+            return response()->json(['erro'=>'Erro interno ->' . $e], 500);
         }
-
-        $location = $this->location->create( $request->all() );
-
-        return response()->json( $location, 201 );
     }
 
     /**
@@ -103,17 +111,21 @@ class LocationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $location = $this->location->find($id);
+        try{
+            $location = $this->location->find($id);
 
-        $status = 200;
+            $status = 200;
 
-        if ( empty( $location ) ) {
-            $status = 204;
-        } else {
-            $location->update($request->all());
+            if ( empty( $location ) ) {
+                $status = 204;
+            } else {
+                $location->update($request->all());
+            }
+
+            return response()->json( $location, $status);
+        } catch ( Exception $e ) {
+            return response()->json(['erro'=>'Erro interno ->' . $e], 500);
         }
-
-        return response()->json( $location, $status);
     }
 
     /**
@@ -123,31 +135,51 @@ class LocationController extends Controller
      */
     public function destroy($id)
     {
-        $location = $this->location->find( $id );
+        try {
+            $location = $this->location->find( $id );
 
-        $status = 200;
+            $status = 200;
 
-        if ( empty( $location ) ) {
-            $status = 204;
-        } else {
-            $location->delete();
+            if ( empty( $location ) ) {
+                $status = 204;
+            } else {
+                $location->delete();
+            }
+
+            return response()->json([],$status);
+        } catch ( Exception $e ) {
+            return response()->json(['erro'=>'Erro interno ->' . $e], 500);
         }
-
-        return response()->json([],$status);
     }
 
     /**
      * Return locations by proximity
      */
     public function proximity(Request $request) {
-        $x = $request->query('X');
-        $y = $request->query('Y');
-        $hour = $request->query('hour');
+        try{
+            $x = $request->query('X');
+            $y = $request->query('Y');
+            $hour = $request->query('hour');
 
-        $locations = $this->location->all();
+            if (!$x || !$y || !$hour)
+                return response()->json(
+                    ['error' => "Algum dos parametros X,Y ou Hour não foi informado"],
+                    400);
 
-        // TODO
-        // implementar função para ordenar por proximidade
+            $locations = $this->location->all();
+
+            $reference = ['X' => $x, 'Y' => $y];
+
+            $ordered = $this->helper->orderByProximity( $reference, $locations);
+
+            $result = $this->helper->checkOpenLocation($hour, $ordered);
+
+            return response()->json($result, 200);
+
+
+        } catch ( Exception $e ) {
+            return response()->json(['erro'=>'Erro interno ->' . $e], 500);
+        }
         // para pontos como praça, não há horário de funcionamento
 
     }

@@ -62,25 +62,25 @@ endpoints:
         name: id
         description: 'The ID of the location.'
         required: true
-        example: 20
+        example: 9
         type: integer
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: 20
+      id: 9
     queryParameters:
       id:
         name: id
         description: "location's id"
         required: false
-        example: facilis
+        example: pariatur
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanQueryParameters:
-      id: facilis
+      id: pariatur
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -126,15 +126,6 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      name:
-        name: name
-        description: 'Must not be greater than 255 characters.'
-        required: true
-        example: nptjoooxfakuvtwk
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
       '{':
         name: '{'
         description: |-
@@ -145,14 +136,13 @@ endpoints:
                'closesAt': 00:00
            }
         required: false
-        example: perspiciatis
+        example: aut
         type: "'name':"
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: nptjoooxfakuvtwk
-      '{': perspiciatis
+      '{': aut
     fileParameters: []
     responses: []
     responseFields: []
@@ -182,13 +172,13 @@ endpoints:
         name: id
         description: 'The ID of the location.'
         required: true
-        example: 1
+        example: 5
         type: integer
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: 5
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -202,20 +192,19 @@ endpoints:
                 'closesAt': 00:00
             }
         required: false
-        example: voluptatum
+        example: magnam
         type: "'name':"
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      '{': voluptatum
+      '{': magnam
     fileParameters: []
     responses:
       -
         status: 200
         content: |-
           {
-               'id': 1,
                'name': 'Bar do Zeca',
                'X': 25,
                'Y': 50,
@@ -252,25 +241,25 @@ endpoints:
         name: id
         description: 'The ID of the location.'
         required: true
-        example: 3
+        example: 11
         type: integer
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: 3
+      id: 11
     queryParameters:
       id:
         name: id
         description: "location's id"
         required: false
-        example: laboriosam
+        example: autem
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanQueryParameters:
-      id: laboriosam
+      id: autem
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -284,7 +273,7 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: api/locations/proximity
+    uri: api/proximity/locations
     metadata:
       groupName: Endpoints
       groupDescription: ''
@@ -306,10 +295,11 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 204
-        content: ''
+        status: 400
+        content: '{"error":"Algum dos parametros X,Y ou Hour n\u00e3o foi informado"}'
         headers:
           cache-control: 'no-cache, private'
+          content-type: application/json
           x-ratelimit-limit: '60'
           x-ratelimit-remaining: '58'
           access-control-allow-origin: '*'

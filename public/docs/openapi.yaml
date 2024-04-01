@@ -28,22 +28,16 @@ paths:
       tags:
         - Endpoints
       requestBody:
-        required: true
+        required: false
         content:
           application/json:
             schema:
               type: object
               properties:
-                name:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: nptjoooxfakuvtwk
                 '{':
                   type: "'name':"
                   description: "'Bar do Zeca',\n     'X': 25,\n     'Y': 50,\n     'opensAt': 17:00,\n     'closesAt': 00:00\n }"
-                  example: perspiciatis
-              required:
-                - name
+                  example: aut
       security: []
   '/api/locations/{id}':
     get:
@@ -55,12 +49,12 @@ paths:
           in: query
           name: id
           description: "location's id"
-          example: facilis
+          example: pariatur
           required: false
           schema:
             type: string
             description: "location's id"
-            example: facilis
+            example: pariatur
       responses:
         200:
           description: ''
@@ -84,7 +78,7 @@ paths:
             text/plain:
               schema:
                 type: string
-                example: "{\n     'id': 1,\n     'name': 'Bar do Zeca',\n     'X': 25,\n     'Y': 50,\n     'opensAt': 17:00,\n     'closesAt': 00:00\n }"
+                example: "{\n     'name': 'Bar do Zeca',\n     'X': 25,\n     'Y': 50,\n     'opensAt': 17:00,\n     'closesAt': 00:00\n }"
       tags:
         - Endpoints
       requestBody:
@@ -97,7 +91,7 @@ paths:
                 '{':
                   type: "'name':"
                   description: "'Bar do Zeca',\n      'X': 25,\n      'Y': 50,\n      'opensAt': 17:00,\n      'closesAt': 00:00\n  }"
-                  example: voluptatum
+                  example: magnam
       security: []
     delete:
       summary: 'Remove the specified resource from storage.'
@@ -108,12 +102,12 @@ paths:
           in: query
           name: id
           description: "location's id"
-          example: laboriosam
+          example: autem
           required: false
           schema:
             type: string
             description: "location's id"
-            example: laboriosam
+            example: autem
       responses: {  }
       tags:
         - Endpoints
@@ -123,19 +117,29 @@ paths:
         in: path
         name: id
         description: 'The ID of the location.'
-        example: 20
+        example: 9
         required: true
         schema:
           type: integer
-  /api/locations/proximity:
+  /api/proximity/locations:
     get:
       summary: 'Return locations by proximity'
       operationId: returnLocationsByProximity
       description: ''
       parameters: []
       responses:
-        204:
+        400:
           description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: 'Algum dos parametros X,Y ou Hour não foi informado'
+                properties:
+                  error:
+                    type: string
+                    example: 'Algum dos parametros X,Y ou Hour não foi informado'
       tags:
         - Endpoints
       security: []
