@@ -21,3 +21,9 @@ Route::get('locations', [\App\Http\Controllers\LocationController::class, 'index
  *
  */
 Route::get('locations/{id}', [\App\Http\Controllers\LocationController::class, 'show']);
+
+/**
+ * Create new location
+ */
+Route::post('locations', [\App\Http\Controllers\LocationController::class, 'store']);
+

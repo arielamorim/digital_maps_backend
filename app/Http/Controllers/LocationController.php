@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Location;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Mockery\Exception;
 
 class LocationController extends Controller
@@ -30,24 +31,31 @@ class LocationController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Store a new location.
      *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * @bodyParam {
+     *      'name': 'Bar do Zeca',
+     *      'X': 25,
+     *      'Y': 50,
+     *      'opensAt': 17:00,
+     *      'closesAt': 00:00
+     *  }
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make( $request->all(), [
+            'name' => 'required|string|max:255',
+        ]);
+
+        if ( $validator->fails() ) {
+            return response()->json( $validator->errors(), 422 );
+        }
+
+        $location = $this->location->create( $request->all() );
+
+        return response()->json( $location, 201 );
     }
 
     /**

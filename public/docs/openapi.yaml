@@ -19,6 +19,32 @@ paths:
       tags:
         - Endpoints
       security: []
+    post:
+      summary: 'Store a new location.'
+      operationId: storeANewLocation
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: kyvbsrv
+                '{':
+                  type: "'name':"
+                  description: "'Bar do Zeca',\n     'X': 25,\n     'Y': 50,\n     'opensAt': 17:00,\n     'closesAt': 00:00\n }"
+                  example: deserunt
+              required:
+                - name
+      security: []
   '/api/locations/{id}':
     get:
       summary: 'Show location by id.'
@@ -29,12 +55,12 @@ paths:
           in: query
           name: id
           description: "location's id"
-          example: voluptas
+          example: ducimus
           required: false
           schema:
             type: string
             description: "location's id"
-            example: voluptas
+            example: ducimus
       responses:
         200:
           description: ''
@@ -51,7 +77,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the location.'
-        example: 2
+        example: 9
         required: true
         schema:
           type: integer

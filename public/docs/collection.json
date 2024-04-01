@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "351aa200-1771-4df1-8aa2-c91d06447df7",
+        "_postman_id": "4acc4494-8e02-4ec8-80c7-28ac18bf32cd",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -58,7 +58,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "59"
+                                    "value": "58"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -80,17 +80,17 @@
                             "query": [
                                 {
                                     "key": "id",
-                                    "value": "voluptas",
+                                    "value": "ducimus",
                                     "description": "location's id",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/locations\/:id?id=voluptas",
+                            "raw": "{{baseUrl}}\/api\/locations\/:id?id=ducimus",
                             "variable": [
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "2",
+                                    "value": "9",
                                     "description": "The ID of the location."
                                 }
                             ]
@@ -120,6 +120,37 @@
                             "name": ""
                         }
                     ]
+                },
+                {
+                    "name": "Store a new location.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/locations",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/locations"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"kyvbsrv\",\"{\":\"deserunt\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
                 }
             ]
         }

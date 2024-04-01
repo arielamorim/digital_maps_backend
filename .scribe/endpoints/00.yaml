@@ -31,7 +31,7 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-remaining: '58'
           access-control-allow-origin: '*'
         description: null
         custom: []
@@ -62,25 +62,25 @@ endpoints:
         name: id
         description: 'The ID of the location.'
         required: true
-        example: 2
+        example: 9
         type: integer
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: 2
+      id: 9
     queryParameters:
       id:
         name: id
         description: "location's id"
         required: false
-        example: voluptas
+        example: ducimus
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanQueryParameters:
-      id: voluptas
+      id: ducimus
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -99,6 +99,62 @@ endpoints:
         headers: []
         description: ''
         custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/locations
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Store a new location.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: kyvbsrv
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      '{':
+        name: '{'
+        description: |-
+          'Bar do Zeca',
+               'X': 25,
+               'Y': 50,
+               'opensAt': 17:00,
+               'closesAt': 00:00
+           }
+        required: false
+        example: deserunt
+        type: "'name':"
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      name: kyvbsrv
+      '{': deserunt
+    fileParameters: []
+    responses: []
     responseFields: []
     auth: []
     controller: null
