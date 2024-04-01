@@ -86,6 +86,9 @@
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-locations--id-">
                                 <a href="#endpoints-DELETEapi-locations--id-">Remove the specified resource from storage.</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-locations-proximity">
+                                <a href="#endpoints-GETapi-locations-proximity">Return locations by proximity</a>
+                            </li>
                                                                         </ul>
                             </ul>
             </div>
@@ -254,18 +257,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/locations/13?id=unde" \
+    --get "http://localhost/api/locations/20?id=facilis" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/locations/13"
+    "http://localhost/api/locations/20"
 );
 
 const params = {
-    "id": "unde",
+    "id": "facilis",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -374,10 +377,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="GETapi-locations--id-"
-               value="13"
+               value="20"
                data-component="url">
     <br>
-<p>The ID of the location. Example: <code>13</code></p>
+<p>The ID of the location. Example: <code>20</code></p>
             </div>
                         <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
                                     <div style="padding-left: 28px; clear: unset;">
@@ -386,10 +389,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="GETapi-locations--id-"
-               value="unde"
+               value="facilis"
                data-component="query">
     <br>
-<p>location's id Example: <code>unde</code></p>
+<p>location's id Example: <code>facilis</code></p>
             </div>
                 </form>
 
@@ -410,8 +413,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"kdcqagyawntrayo\",
-    \"{\": \"cum\"
+    \"name\": \"nptjoooxfakuvtwk\",
+    \"{\": \"perspiciatis\"
 }"
 </code></pre></div>
 
@@ -427,8 +430,8 @@ const headers = {
 };
 
 let body = {
-    "name": "kdcqagyawntrayo",
-    "{": "cum"
+    "name": "nptjoooxfakuvtwk",
+    "{": "perspiciatis"
 };
 
 fetch(url, {
@@ -517,10 +520,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-locations"
-               value="kdcqagyawntrayo"
+               value="nptjoooxfakuvtwk"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>kdcqagyawntrayo</code></p>
+<p>Must not be greater than 255 characters. Example: <code>nptjoooxfakuvtwk</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>{</code></b>&nbsp;&nbsp;
@@ -528,7 +531,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="{"                data-endpoint="POSTapi-locations"
-               value="cum"
+               value="perspiciatis"
                data-component="body">
     <br>
 <p>'Bar do Zeca',
@@ -536,7 +539,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 'Y': 50,
 'opensAt': 17:00,
 'closesAt': 00:00
-} Example: <code>cum</code></p>
+} Example: <code>perspiciatis</code></p>
         </div>
         </form>
 
@@ -553,18 +556,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/locations/4" \
+    "http://localhost/api/locations/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"{\": \"illo\"
+    \"{\": \"voluptatum\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/locations/4"
+    "http://localhost/api/locations/1"
 );
 
 const headers = {
@@ -573,7 +576,7 @@ const headers = {
 };
 
 let body = {
-    "{": "illo"
+    "{": "voluptatum"
 };
 
 fetch(url, {
@@ -676,10 +679,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="PUTapi-locations--id-"
-               value="4"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the location. Example: <code>4</code></p>
+<p>The ID of the location. Example: <code>1</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -688,7 +691,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="{"                data-endpoint="PUTapi-locations--id-"
-               value="illo"
+               value="voluptatum"
                data-component="body">
     <br>
 <p>'Bar do Zeca',
@@ -696,7 +699,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 'Y': 50,
 'opensAt': 17:00,
 'closesAt': 00:00
-} Example: <code>illo</code></p>
+} Example: <code>voluptatum</code></p>
         </div>
         </form>
 
@@ -713,7 +716,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/locations/3?id=tempore" \
+    "http://localhost/api/locations/3?id=laboriosam" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -724,7 +727,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const params = {
-    "id": "tempore",
+    "id": "laboriosam",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -831,12 +834,134 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="DELETEapi-locations--id-"
-               value="tempore"
+               value="laboriosam"
                data-component="query">
     <br>
-<p>location's id Example: <code>tempore</code></p>
+<p>location's id Example: <code>laboriosam</code></p>
             </div>
                 </form>
+
+                    <h2 id="endpoints-GETapi-locations-proximity">Return locations by proximity</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-locations-proximity">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/locations/proximity" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/locations/proximity"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-locations-proximity">
+            <blockquote>
+            <p>Example response (204):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 58
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+<code>Empty response</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-locations-proximity" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-locations-proximity"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-locations-proximity"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-locations-proximity" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-locations-proximity">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-locations-proximity" data-method="GET"
+      data-path="api/locations/proximity"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-locations-proximity', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-locations-proximity"
+                    onclick="tryItOut('GETapi-locations-proximity');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-locations-proximity"
+                    onclick="cancelTryOut('GETapi-locations-proximity');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-locations-proximity"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/locations/proximity</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-locations-proximity"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-locations-proximity"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
 
             
 

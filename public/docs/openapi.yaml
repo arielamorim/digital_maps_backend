@@ -37,11 +37,11 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: kdcqagyawntrayo
+                  example: nptjoooxfakuvtwk
                 '{':
                   type: "'name':"
                   description: "'Bar do Zeca',\n     'X': 25,\n     'Y': 50,\n     'opensAt': 17:00,\n     'closesAt': 00:00\n }"
-                  example: cum
+                  example: perspiciatis
               required:
                 - name
       security: []
@@ -55,12 +55,12 @@ paths:
           in: query
           name: id
           description: "location's id"
-          example: unde
+          example: facilis
           required: false
           schema:
             type: string
             description: "location's id"
-            example: unde
+            example: facilis
       responses:
         200:
           description: ''
@@ -97,7 +97,7 @@ paths:
                 '{':
                   type: "'name':"
                   description: "'Bar do Zeca',\n      'X': 25,\n      'Y': 50,\n      'opensAt': 17:00,\n      'closesAt': 00:00\n  }"
-                  example: illo
+                  example: voluptatum
       security: []
     delete:
       summary: 'Remove the specified resource from storage.'
@@ -108,12 +108,12 @@ paths:
           in: query
           name: id
           description: "location's id"
-          example: tempore
+          example: laboriosam
           required: false
           schema:
             type: string
             description: "location's id"
-            example: tempore
+            example: laboriosam
       responses: {  }
       tags:
         - Endpoints
@@ -123,10 +123,22 @@ paths:
         in: path
         name: id
         description: 'The ID of the location.'
-        example: 13
+        example: 20
         required: true
         schema:
           type: integer
+  /api/locations/proximity:
+    get:
+      summary: 'Return locations by proximity'
+      operationId: returnLocationsByProximity
+      description: ''
+      parameters: []
+      responses:
+        204:
+          description: ''
+      tags:
+        - Endpoints
+      security: []
 tags:
   -
     name: Endpoints

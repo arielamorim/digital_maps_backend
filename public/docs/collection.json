@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "b58f1a29-65da-4153-bc91-44df348f348a",
+        "_postman_id": "115902e5-34f0-4c1a-b383-ed19b229a7ad",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -80,17 +80,17 @@
                             "query": [
                                 {
                                     "key": "id",
-                                    "value": "unde",
+                                    "value": "facilis",
                                     "description": "location's id",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/locations\/:id?id=unde",
+                            "raw": "{{baseUrl}}\/api\/locations\/:id?id=facilis",
                             "variable": [
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "13",
+                                    "value": "20",
                                     "description": "The ID of the location."
                                 }
                             ]
@@ -143,7 +143,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"kdcqagyawntrayo\",\"{\":\"cum\"}"
+                            "raw": "{\"name\":\"nptjoooxfakuvtwk\",\"{\":\"perspiciatis\"}"
                         },
                         "description": "",
                         "auth": {
@@ -164,7 +164,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "4",
+                                    "value": "1",
                                     "description": "The ID of the location."
                                 }
                             ]
@@ -182,7 +182,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"{\":\"illo\"}"
+                            "raw": "{\"{\":\"voluptatum\"}"
                         },
                         "description": "",
                         "auth": {
@@ -207,12 +207,12 @@
                             "query": [
                                 {
                                     "key": "id",
-                                    "value": "tempore",
+                                    "value": "laboriosam",
                                     "description": "location's id",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/locations\/:id?id=tempore",
+                            "raw": "{{baseUrl}}\/api\/locations\/:id?id=laboriosam",
                             "variable": [
                                 {
                                     "id": "id",
@@ -240,6 +240,58 @@
                         }
                     },
                     "response": []
+                },
+                {
+                    "name": "Return locations by proximity",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/locations\/proximity",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/locations\/proximity"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "58"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 204,
+                            "body": "",
+                            "name": ""
+                        }
+                    ]
                 }
             ]
         }

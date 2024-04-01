@@ -94,7 +94,6 @@ class LocationController extends Controller
      *       'closesAt': 00:00
      *   }
      * @response {
-     *      'id': 1,
      *      'name': 'Bar do Zeca',
      *      'X': 25,
      *      'Y': 50,
@@ -136,4 +135,21 @@ class LocationController extends Controller
 
         return response()->json([],$status);
     }
+
+    /**
+     * Return locations by proximity
+     */
+    public function proximity(Request $request) {
+        $x = $request->query('X');
+        $y = $request->query('Y');
+        $hour = $request->query('hour');
+
+        $locations = $this->location->all();
+
+        // TODO
+        // implementar função para ordenar por proximidade
+        // para pontos como praça, não há horário de funcionamento
+
+    }
+
 }
