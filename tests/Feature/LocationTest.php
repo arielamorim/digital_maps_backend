@@ -22,7 +22,7 @@ class LocationTest extends TestCase
         $response->assertJsonCount(3);
 
         $response->assertJson( function ( AssertableJson $json){
-            $json->hasAll(['0.id', '0.name']);
+            $json->hasAll(['0.id', '0.name', '0.X', '0.Y', '0.opensAt', '0.closesAt']);
         });
     }
 
