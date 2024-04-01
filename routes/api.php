@@ -11,3 +11,13 @@ use Illuminate\Support\Facades\Route;
  * @responseField locations array with locations
  */
 Route::get('locations', [\App\Http\Controllers\LocationController::class, 'index']);
+
+/**
+ * Get location by id
+ *
+ * This endpoint returns a location by its id
+ *
+ * @responseField locations array with locations
+ *
+ */
+Route::get('locations/{id}', [\App\Http\Controllers\LocationController::class, 'show']);

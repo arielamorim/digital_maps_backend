@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "3d8576ed-3154-47a6-b941-fecaa8f6be8f",
+        "_postman_id": "351aa200-1771-4df1-8aa2-c91d06447df7",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -20,7 +20,7 @@
             "description": "",
             "item": [
                 {
-                    "name": "Display a listing of the resource.",
+                    "name": "Show all locations.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -53,10 +53,6 @@
                                     "value": "no-cache, private"
                                 },
                                 {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
                                     "key": "x-ratelimit-limit",
                                     "value": "60"
                                 },
@@ -69,8 +65,58 @@
                                     "value": "*"
                                 }
                             ],
+                            "code": 204,
+                            "body": "",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Show location by id.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/locations\/:id",
+                            "query": [
+                                {
+                                    "key": "id",
+                                    "value": "voluptas",
+                                    "description": "location's id",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/locations\/:id?id=voluptas",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "2",
+                                    "description": "The ID of the location."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
                             "code": 200,
-                            "body": "[]",
+                            "body": "{\n    'id': 1,\n    'name': 'Bar do Zeca',\n    'X': 25,\n    'Y': 50,\n    'opensAt': 17:00,\n    'closesAt': 00:00\n}",
                             "name": ""
                         }
                     ]

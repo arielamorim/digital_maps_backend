@@ -9,23 +9,52 @@ servers:
 paths:
   /api/locations:
     get:
-      summary: 'Display a listing of the resource.'
-      operationId: displayAListingOfTheResource
+      summary: 'Show all locations.'
+      operationId: showAllLocations
       description: ''
       parameters: []
+      responses:
+        204:
+          description: ''
+      tags:
+        - Endpoints
+      security: []
+  '/api/locations/{id}':
+    get:
+      summary: 'Show location by id.'
+      operationId: showLocationById
+      description: ''
+      parameters:
+        -
+          in: query
+          name: id
+          description: "location's id"
+          example: voluptas
+          required: false
+          schema:
+            type: string
+            description: "location's id"
+            example: voluptas
       responses:
         200:
           description: ''
           content:
-            application/json:
+            text/plain:
               schema:
-                type: array
-                items:
-                  type: object
-                example: []
+                type: string
+                example: "{\n    'id': 1,\n    'name': 'Bar do Zeca',\n    'X': 25,\n    'Y': 50,\n    'opensAt': 17:00,\n    'closesAt': 00:00\n}"
       tags:
         - Endpoints
       security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the location.'
+        example: 2
+        required: true
+        schema:
+          type: integer
 tags:
   -
     name: Endpoints

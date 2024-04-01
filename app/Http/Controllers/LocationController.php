@@ -3,20 +3,30 @@
 namespace App\Http\Controllers;
 
 use App\Models\Location;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use Mockery\Exception;
 
 class LocationController extends Controller
 {
     public function __construct( private Location $location ){}
 
     /**
-     * Display a listing of the resource.
+     * Show all locations.
      *
      * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
-        return response()->json( $this->location->all() , 200);
+        try{
+            $locations = $this->location->all();
+
+            $status = $locations->count() > 0 ? 200 : 204;
+
+            return response()->json( $locations , $status);
+        } catch ( Exception $e ) {
+            return response()->json(['erro'=>'Erro interno ->' . $e], 500);
+        }
     }
 
     /**
@@ -41,14 +51,30 @@ class LocationController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Show location by id.
+     *
+     * @queryParam id location's id
+     * @response {
+     *     'id': 1,
+     *     'name': 'Bar do Zeca',
+     *     'X': 25,
+     *     'Y': 50,
+     *     'opensAt': 17:00,
+     *     'closesAt': 00:00
+     * }
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show($id)
     {
-        //
+        try{
+            $location = $this->location->find( $id );
+
+            return response()->json( $location, 200);
+        } catch ( Exception $e ) {
+            return response()->json(['erro'=>'Erro interno ->' . $e], 500);
+        }
     }
 
     /**
