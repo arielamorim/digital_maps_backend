@@ -32,3 +32,7 @@ Route::post('locations', [\App\Http\Controllers\LocationController::class, 'stor
  */
 Route::put('locations/{id}', [\App\Http\Controllers\LocationController::class, 'update']);
 
+/**
+ * Delete location
+ */
+Route::delete('locations/{id}', [\App\Http\Controllers\LocationController::class, 'destroy']);

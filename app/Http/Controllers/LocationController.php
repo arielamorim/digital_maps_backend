@@ -86,7 +86,21 @@ class LocationController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
+     * @bodyParam {
+     *       'name': 'Bar do Zeca',
+     *       'X': 25,
+     *       'Y': 50,
+     *       'opensAt': 17:00,
+     *       'closesAt': 00:00
+     *   }
+     * @response {
+     *      'id': 1,
+     *      'name': 'Bar do Zeca',
+     *      'X': 25,
+     *      'Y': 50,
+     *      'opensAt': 17:00,
+     *      'closesAt': 00:00
+     *  }
      */
     public function update(Request $request, $id)
     {
@@ -106,11 +120,20 @@ class LocationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @queryParam id location's id
      */
     public function destroy($id)
     {
-        //
+        $location = $this->location->find( $id );
+
+        $status = 200;
+
+        if ( empty( $location ) ) {
+            $status = 204;
+        } else {
+            $location->delete();
+        }
+
+        return response()->json([],$status);
     }
 }

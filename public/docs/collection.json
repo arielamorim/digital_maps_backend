@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "5895578f-f438-4245-ae4a-60bab1ba346c",
+        "_postman_id": "b58f1a29-65da-4153-bc91-44df348f348a",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -80,17 +80,17 @@
                             "query": [
                                 {
                                     "key": "id",
-                                    "value": "et",
+                                    "value": "unde",
                                     "description": "location's id",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/locations\/:id?id=et",
+                            "raw": "{{baseUrl}}\/api\/locations\/:id?id=unde",
                             "variable": [
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "9",
+                                    "value": "13",
                                     "description": "The ID of the location."
                                 }
                             ]
@@ -143,7 +143,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"oordhfruwai\",\"{\":\"ut\"}"
+                            "raw": "{\"name\":\"kdcqagyawntrayo\",\"{\":\"cum\"}"
                         },
                         "description": "",
                         "auth": {
@@ -164,12 +164,65 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "18",
+                                    "value": "4",
                                     "description": "The ID of the location."
                                 }
                             ]
                         },
                         "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"{\":\"illo\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n     'id': 1,\n     'name': 'Bar do Zeca',\n     'X': 25,\n     'Y': 50,\n     'opensAt': 17:00,\n     'closesAt': 00:00\n }",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Remove the specified resource from storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/locations\/:id",
+                            "query": [
+                                {
+                                    "key": "id",
+                                    "value": "tempore",
+                                    "description": "location's id",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/locations\/:id?id=tempore",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "3",
+                                    "description": "The ID of the location."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
                         "header": [
                             {
                                 "key": "Content-Type",

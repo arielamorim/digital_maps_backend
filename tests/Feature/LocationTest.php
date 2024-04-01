@@ -92,7 +92,7 @@ class LocationTest extends TestCase
         });
     }
 
-    public function test_update_location_but_cant_find_anything()
+    public function test_update_but_cant_find_location()
     {
         $location = [
             'name'=>'Restaurante',
@@ -100,6 +100,22 @@ class LocationTest extends TestCase
         ];
 
         $response = $this->putJson('/api/locations/1', $location);
+
+        $response->assertStatus(204);
+    }
+
+    public function test_delete_location()
+    {
+        Location::factory(1)->createOne();
+
+        $response = $this->deleteJson('/api/locations/1');
+
+        $response->assertStatus(200);
+    }
+
+    public function test_delete_but_cant_find_location()
+    {
+        $response = $this->deleteJson('/api/locations/1');
 
         $response->assertStatus(204);
     }
