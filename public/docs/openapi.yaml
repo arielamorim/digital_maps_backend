@@ -37,11 +37,11 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: kyvbsrv
+                  example: oordhfruwai
                 '{':
                   type: "'name':"
                   description: "'Bar do Zeca',\n     'X': 25,\n     'Y': 50,\n     'opensAt': 17:00,\n     'closesAt': 00:00\n }"
-                  example: deserunt
+                  example: ut
               required:
                 - name
       security: []
@@ -55,12 +55,12 @@ paths:
           in: query
           name: id
           description: "location's id"
-          example: ducimus
+          example: et
           required: false
           schema:
             type: string
             description: "location's id"
-            example: ducimus
+            example: et
       responses:
         200:
           description: ''
@@ -69,6 +69,15 @@ paths:
               schema:
                 type: string
                 example: "{\n    'id': 1,\n    'name': 'Bar do Zeca',\n    'X': 25,\n    'Y': 50,\n    'opensAt': 17:00,\n    'closesAt': 00:00\n}"
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
       tags:
         - Endpoints
       security: []

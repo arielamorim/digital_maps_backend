@@ -80,6 +80,9 @@
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-POSTapi-locations">
                                 <a href="#endpoints-POSTapi-locations">Store a new location.</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-locations--id-">
+                                <a href="#endpoints-PUTapi-locations--id-">Update the specified resource in storage.</a>
+                            </li>
                                                                         </ul>
                             </ul>
             </div>
@@ -158,7 +161,7 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 58
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 <code>Empty response</code>
@@ -248,7 +251,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/locations/9?id=ducimus" \
+    --get "http://localhost/api/locations/9?id=et" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -259,7 +262,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const params = {
-    "id": "ducimus",
+    "id": "et",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -380,10 +383,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="GETapi-locations--id-"
-               value="ducimus"
+               value="et"
                data-component="query">
     <br>
-<p>location's id Example: <code>ducimus</code></p>
+<p>location's id Example: <code>et</code></p>
             </div>
                 </form>
 
@@ -404,8 +407,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"kyvbsrv\",
-    \"{\": \"deserunt\"
+    \"name\": \"oordhfruwai\",
+    \"{\": \"ut\"
 }"
 </code></pre></div>
 
@@ -421,8 +424,8 @@ const headers = {
 };
 
 let body = {
-    "name": "kyvbsrv",
-    "{": "deserunt"
+    "name": "oordhfruwai",
+    "{": "ut"
 };
 
 fetch(url, {
@@ -511,10 +514,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-locations"
-               value="kyvbsrv"
+               value="oordhfruwai"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>kyvbsrv</code></p>
+<p>Must not be greater than 255 characters. Example: <code>oordhfruwai</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>{</code></b>&nbsp;&nbsp;
@@ -522,7 +525,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="{"                data-endpoint="POSTapi-locations"
-               value="deserunt"
+               value="ut"
                data-component="body">
     <br>
 <p>'Bar do Zeca',
@@ -530,9 +533,129 @@ You can check the Dev Tools console for debugging information.</code></pre>
 'Y': 50,
 'opensAt': 17:00,
 'closesAt': 00:00
-} Example: <code>deserunt</code></p>
+} Example: <code>ut</code></p>
         </div>
         </form>
+
+                    <h2 id="endpoints-PUTapi-locations--id-">Update the specified resource in storage.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-PUTapi-locations--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/locations/18" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/locations/18"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-locations--id-">
+</span>
+<span id="execution-results-PUTapi-locations--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-locations--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-locations--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-locations--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-locations--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-locations--id-" data-method="PUT"
+      data-path="api/locations/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-locations--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-locations--id-"
+                    onclick="tryItOut('PUTapi-locations--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-locations--id-"
+                    onclick="cancelTryOut('PUTapi-locations--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-locations--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/locations/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-locations--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-locations--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="PUTapi-locations--id-"
+               value="18"
+               data-component="url">
+    <br>
+<p>The ID of the location. Example: <code>18</code></p>
+            </div>
+                    </form>
 
             
 

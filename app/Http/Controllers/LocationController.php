@@ -15,7 +15,6 @@ class LocationController extends Controller
     /**
      * Show all locations.
      *
-     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
@@ -71,41 +70,37 @@ class LocationController extends Controller
      *     'closesAt': 00:00
      * }
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\JsonResponse
      */
     public function show($id)
     {
         try{
             $location = $this->location->find( $id );
 
-            return response()->json( $location, 200);
+            $status = empty( $location) == 1 ? 204 : 200;
+
+            return response()->json( $location, $status);
         } catch ( Exception $e ) {
             return response()->json(['erro'=>'Erro interno ->' . $e], 500);
         }
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+        $location = $this->location->find($id);
+
+        $status = 200;
+
+        if ( empty( $location ) ) {
+            $status = 204;
+        } else {
+            $location->update($request->all());
+        }
+
+        return response()->json( $location, $status);
     }
 
     /**

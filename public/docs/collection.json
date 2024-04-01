@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "4acc4494-8e02-4ec8-80c7-28ac18bf32cd",
+        "_postman_id": "5895578f-f438-4245-ae4a-60bab1ba346c",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -58,7 +58,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "58"
+                                    "value": "59"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -80,12 +80,12 @@
                             "query": [
                                 {
                                     "key": "id",
-                                    "value": "ducimus",
+                                    "value": "et",
                                     "description": "location's id",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/locations\/:id?id=ducimus",
+                            "raw": "{{baseUrl}}\/api\/locations\/:id?id=et",
                             "variable": [
                                 {
                                     "id": "id",
@@ -143,8 +143,44 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"kyvbsrv\",\"{\":\"deserunt\"}"
+                            "raw": "{\"name\":\"oordhfruwai\",\"{\":\"ut\"}"
                         },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update the specified resource in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/locations\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/locations\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "18",
+                                    "description": "The ID of the location."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
                         "description": "",
                         "auth": {
                             "type": "noauth"

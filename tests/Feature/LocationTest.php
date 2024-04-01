@@ -48,7 +48,11 @@ class LocationTest extends TestCase
 
     }
 
-    public function test_get_location_by_id_empty(){
+    public function test_get_location_by_id_but_is_empty(){
+
+        $response = $this->getJson('/api/locations/' . 5 );
+
+        $response->assertStatus(204);
 
     }
     public function test_create_location_endpoint() {
@@ -67,5 +71,36 @@ class LocationTest extends TestCase
             $json->where('closesAt', $location['closesAt'] );
             $json->where('opensAt', $location['opensAt'] );
         });
+    }
+
+    public function test_update_location_endpoint() {
+        Location::factory(1)->createOne();
+
+        $location = [
+            'name'=>'Restaurante',
+            'opensAt'=>'12:00'
+        ];
+
+        $response = $this->putJson('/api/locations/1', $location);
+
+        $response->assertStatus(200);
+        $response->assertJson( function ( AssertableJson $json) use ($location){
+            $json->hasAll(['id','name','X','Y','opensAt','closesAt','created_at','updated_at']);
+
+            $json->where('name', $location['name'] );
+            $json->where('opensAt', $location['opensAt'] );
+        });
+    }
+
+    public function test_update_location_but_cant_find_anything()
+    {
+        $location = [
+            'name'=>'Restaurante',
+            'opensAt'=>'12:00'
+        ];
+
+        $response = $this->putJson('/api/locations/1', $location);
+
+        $response->assertStatus(204);
     }
 }

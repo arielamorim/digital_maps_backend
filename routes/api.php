@@ -27,3 +27,8 @@ Route::get('locations/{id}', [\App\Http\Controllers\LocationController::class, '
  */
 Route::post('locations', [\App\Http\Controllers\LocationController::class, 'store']);
 
+/**
+ * Update location
+ */
+Route::put('locations/{id}', [\App\Http\Controllers\LocationController::class, 'update']);
+
