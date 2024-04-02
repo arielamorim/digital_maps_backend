@@ -26,14 +26,18 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 204
-        content: ''
-        headers:
-          cache-control: 'no-cache, private'
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
-          access-control-allow-origin: '*'
-        description: null
+        status: 200
+        content: |-
+          [{
+                'name': 'Bar do Zeca',
+                'X': 25,
+                'Y': 50,
+                'opensAt': 17:00,
+                'closesAt': 00:00,
+                'publicLocation': 0
+            }] array of locations
+        headers: []
+        description: ''
         custom: []
     responseFields: []
     auth: []
@@ -60,27 +64,17 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the location.'
-        required: true
-        example: 9
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanUrlParameters:
-      id: 9
-    queryParameters:
-      id:
-        name: id
         description: "location's id"
         required: false
-        example: pariatur
-        type: string
+        example: 4
+        type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         custom: []
-    cleanQueryParameters:
-      id: pariatur
+    cleanUrlParameters:
+      id: 4
+    queryParameters: []
+    cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -94,7 +88,8 @@ endpoints:
               'X': 25,
               'Y': 50,
               'opensAt': 17:00,
-              'closesAt': 00:00
+              'closesAt': 00:00,
+              'publicLocation': 0
           }
         headers: []
         description: ''
@@ -126,23 +121,67 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      '{':
-        name: '{'
-        description: |-
-          'Bar do Zeca',
-               'X': 25,
-               'Y': 50,
-               'opensAt': 17:00,
-               'closesAt': 00:00
-           }
+      name:
+        name: name
+        description: "Location's name"
         required: false
-        example: aut
-        type: "'name':"
+        example: 'Restaurante da Lapa'
+        type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
+        custom: []
+      X:
+        name: X
+        description: 'Coordinate X'
+        required: false
+        example: '56'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      'Y':
+        name: 'Y'
+        description: 'Coordinate Y'
+        required: false
+        example: '89'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      opensAt:
+        name: opensAt
+        description: 'Opening time of the location'
+        required: false
+        example: '11:00'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      closesAt:
+        name: closesAt
+        description: 'Closing time of the location'
+        required: false
+        example: '21:00'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      publicLocation:
+        name: publicLocation
+        description: 'Set 1 for publicLocations, indication the is always open'
+        required: false
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
         custom: []
     cleanBodyParameters:
-      '{': aut
+      name: 'Restaurante da Lapa'
+      X: '56'
+      'Y': '89'
+      opensAt: '11:00'
+      closesAt: '21:00'
+      publicLocation: '1'
     fileParameters: []
     responses: []
     responseFields: []
@@ -170,35 +209,79 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the location.'
-        required: true
-        example: 5
+        description: "Location's id"
+        required: false
+        example: 3
         type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         custom: []
     cleanUrlParameters:
-      id: 5
+      id: 3
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      '{':
-        name: '{'
-        description: |-
-          'Bar do Zeca',
-                'X': 25,
-                'Y': 50,
-                'opensAt': 17:00,
-                'closesAt': 00:00
-            }
+      name:
+        name: name
+        description: "Location's name"
         required: false
-        example: magnam
-        type: "'name':"
+        example: 'Restaurante da Lapa'
+        type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
+        custom: []
+      X:
+        name: X
+        description: 'Coordinate X'
+        required: false
+        example: '56'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      'Y':
+        name: 'Y'
+        description: 'Coordinate Y'
+        required: false
+        example: '89'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      opensAt:
+        name: opensAt
+        description: 'Opening time of the location'
+        required: false
+        example: '11:00'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      closesAt:
+        name: closesAt
+        description: 'Closing time of the location'
+        required: false
+        example: '21:00'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      publicLocation:
+        name: publicLocation
+        description: 'Set 1 for publicLocations, indication the is always open'
+        required: false
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
         custom: []
     cleanBodyParameters:
-      '{': magnam
+      name: 'Restaurante da Lapa'
+      X: '56'
+      'Y': '89'
+      opensAt: '11:00'
+      closesAt: '21:00'
+      publicLocation: '1'
     fileParameters: []
     responses:
       -
@@ -209,7 +292,8 @@ endpoints:
                'X': 25,
                'Y': 50,
                'opensAt': 17:00,
-               'closesAt': 00:00
+               'closesAt': 00:00,
+               'publicLocation': 0
            }
         headers: []
         description: ''
@@ -239,27 +323,17 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the location.'
-        required: true
-        example: 11
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanUrlParameters:
-      id: 11
-    queryParameters:
-      id:
-        name: id
         description: "location's id"
         required: false
-        example: autem
+        example: '2'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         custom: []
-    cleanQueryParameters:
-      id: autem
+    cleanUrlParameters:
+      id: '2'
+    queryParameters: []
+    cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -288,22 +362,54 @@ endpoints:
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
+    queryParameters:
+      X:
+        name: X
+        description: 'coordinate X'
+        required: false
+        example: '23'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      'Y':
+        name: 'Y'
+        description: 'coordinate Y'
+        required: false
+        example: '50'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      hour:
+        name: hour
+        description: 'look for open locations at this time'
+        required: false
+        example: '12:00'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+    cleanQueryParameters:
+      X: '23'
+      'Y': '50'
+      hour: '12:00'
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
     responses:
       -
-        status: 400
-        content: '{"error":"Algum dos parametros X,Y ou Hour n\u00e3o foi informado"}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '58'
-          access-control-allow-origin: '*'
-        description: null
+        status: 200
+        content: |-
+          {
+                'name': 'Bar do Zeca',
+                'status': 'open'
+                'opensAt': 17:00,
+                'closesAt': 00:00,
+                'publicLocation': 0
+            }
+        headers: []
+        description: ''
         custom: []
     responseFields: []
     auth: []

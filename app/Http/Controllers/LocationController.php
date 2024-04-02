@@ -19,6 +19,14 @@ class LocationController extends Controller
     /**
      * Show all locations.
      *
+     * @response [{
+     *       'name': 'Bar do Zeca',
+     *       'X': 25,
+     *       'Y': 50,
+     *       'opensAt': 17:00,
+     *       'closesAt': 00:00,
+     *       'publicLocation': 0
+     *   }] array of locations
      */
     public function index()
     {
@@ -36,15 +44,13 @@ class LocationController extends Controller
     /**
      * Store a new location.
      *
-     * @bodyParam {
-     *      'name': 'Bar do Zeca',
-     *      'X': 25,
-     *      'Y': 50,
-     *      'opensAt': 17:00,
-     *      'closesAt': 00:00
-     *  }
+     * @bodyParam name string Location's name Example: Restaurante da Lapa
+     * @bodyParam X string Coordinate X Example: 56
+     * @bodyParam Y string Coordinate Y Example: 89
+     * @bodyParam opensAt string Opening time of the location Example: 11:00
+     * @bodyParam closesAt string Closing time of the location Example: 21:00
+     * @bodyParam publicLocation string Set 1 for publicLocations, indication the is always open Example:1
      *
-     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
@@ -68,14 +74,15 @@ class LocationController extends Controller
     /**
      * Show location by id.
      *
-     * @queryParam id location's id
+     * @urlParam id int location's id Example: 4
      * @response {
      *     'id': 1,
      *     'name': 'Bar do Zeca',
      *     'X': 25,
      *     'Y': 50,
      *     'opensAt': 17:00,
-     *     'closesAt': 00:00
+     *     'closesAt': 00:00,
+     *     'publicLocation': 0
      * }
      *
      */
@@ -94,19 +101,23 @@ class LocationController extends Controller
 
     /**
      * Update the specified resource in storage.
-     * @bodyParam {
-     *       'name': 'Bar do Zeca',
-     *       'X': 25,
-     *       'Y': 50,
-     *       'opensAt': 17:00,
-     *       'closesAt': 00:00
-     *   }
+     *
+     * @urlParam id int Location's id Example:3
+     *
+     * @bodyParam name string Location's name Example: Restaurante da Lapa
+     * @bodyParam X string Coordinate X Example: 56
+     * @bodyParam Y string Coordinate Y Example: 89
+     * @bodyParam opensAt string Opening time of the location Example: 11:00
+     * @bodyParam closesAt string Closing time of the location Example: 21:00
+     * @bodyParam publicLocation string Set 1 for publicLocations, indication the is always open Example:1
+     *
      * @response {
      *      'name': 'Bar do Zeca',
      *      'X': 25,
      *      'Y': 50,
      *      'opensAt': 17:00,
-     *      'closesAt': 00:00
+     *      'closesAt': 00:00,
+     *      'publicLocation': 0
      *  }
      */
     public function update(Request $request, $id)
@@ -131,7 +142,7 @@ class LocationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @queryParam id location's id
+     * @urlParam id location's id Example:2
      */
     public function destroy($id)
     {
@@ -154,6 +165,18 @@ class LocationController extends Controller
 
     /**
      * Return locations by proximity
+     *
+     * @queryParam X coordinate X Example: 23
+     * @queryParam Y coordinate Y Example: 50
+     * @queryParam hour look for open locations at this time Example: 12:00
+     *
+     * @response {
+     *       'name': 'Bar do Zeca',
+     *       'status': 'open'
+     *       'opensAt': 17:00,
+     *       'closesAt': 00:00,
+     *       'publicLocation': 0
+     *   }
      */
     public function proximity(Request $request) {
         try{
@@ -180,8 +203,6 @@ class LocationController extends Controller
         } catch ( Exception $e ) {
             return response()->json(['erro'=>'Erro interno ->' . $e], 500);
         }
-        // para pontos como praça, não há horário de funcionamento
-
     }
 
 }

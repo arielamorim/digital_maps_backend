@@ -14,8 +14,13 @@ paths:
       description: ''
       parameters: []
       responses:
-        204:
+        200:
           description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "[{\n      'name': 'Bar do Zeca',\n      'X': 25,\n      'Y': 50,\n      'opensAt': 17:00,\n      'closesAt': 00:00,\n      'publicLocation': 0\n  }] array of locations"
       tags:
         - Endpoints
       security: []
@@ -34,27 +39,37 @@ paths:
             schema:
               type: object
               properties:
-                '{':
-                  type: "'name':"
-                  description: "'Bar do Zeca',\n     'X': 25,\n     'Y': 50,\n     'opensAt': 17:00,\n     'closesAt': 00:00\n }"
-                  example: aut
+                name:
+                  type: string
+                  description: "Location's name"
+                  example: 'Restaurante da Lapa'
+                X:
+                  type: string
+                  description: 'Coordinate X'
+                  example: '56'
+                'Y':
+                  type: string
+                  description: 'Coordinate Y'
+                  example: '89'
+                opensAt:
+                  type: string
+                  description: 'Opening time of the location'
+                  example: '11:00'
+                closesAt:
+                  type: string
+                  description: 'Closing time of the location'
+                  example: '21:00'
+                publicLocation:
+                  type: string
+                  description: 'Set 1 for publicLocations, indication the is always open'
+                  example: '1'
       security: []
   '/api/locations/{id}':
     get:
       summary: 'Show location by id.'
       operationId: showLocationById
       description: ''
-      parameters:
-        -
-          in: query
-          name: id
-          description: "location's id"
-          example: pariatur
-          required: false
-          schema:
-            type: string
-            description: "location's id"
-            example: pariatur
+      parameters: []
       responses:
         200:
           description: ''
@@ -62,7 +77,7 @@ paths:
             text/plain:
               schema:
                 type: string
-                example: "{\n    'id': 1,\n    'name': 'Bar do Zeca',\n    'X': 25,\n    'Y': 50,\n    'opensAt': 17:00,\n    'closesAt': 00:00\n}"
+                example: "{\n    'id': 1,\n    'name': 'Bar do Zeca',\n    'X': 25,\n    'Y': 50,\n    'opensAt': 17:00,\n    'closesAt': 00:00,\n    'publicLocation': 0\n}"
       tags:
         - Endpoints
       security: []
@@ -78,7 +93,7 @@ paths:
             text/plain:
               schema:
                 type: string
-                example: "{\n     'name': 'Bar do Zeca',\n     'X': 25,\n     'Y': 50,\n     'opensAt': 17:00,\n     'closesAt': 00:00\n }"
+                example: "{\n     'name': 'Bar do Zeca',\n     'X': 25,\n     'Y': 50,\n     'opensAt': 17:00,\n     'closesAt': 00:00,\n     'publicLocation': 0\n }"
       tags:
         - Endpoints
       requestBody:
@@ -88,26 +103,36 @@ paths:
             schema:
               type: object
               properties:
-                '{':
-                  type: "'name':"
-                  description: "'Bar do Zeca',\n      'X': 25,\n      'Y': 50,\n      'opensAt': 17:00,\n      'closesAt': 00:00\n  }"
-                  example: magnam
+                name:
+                  type: string
+                  description: "Location's name"
+                  example: 'Restaurante da Lapa'
+                X:
+                  type: string
+                  description: 'Coordinate X'
+                  example: '56'
+                'Y':
+                  type: string
+                  description: 'Coordinate Y'
+                  example: '89'
+                opensAt:
+                  type: string
+                  description: 'Opening time of the location'
+                  example: '11:00'
+                closesAt:
+                  type: string
+                  description: 'Closing time of the location'
+                  example: '21:00'
+                publicLocation:
+                  type: string
+                  description: 'Set 1 for publicLocations, indication the is always open'
+                  example: '1'
       security: []
     delete:
       summary: 'Remove the specified resource from storage.'
       operationId: removeTheSpecifiedResourceFromStorage
       description: ''
-      parameters:
-        -
-          in: query
-          name: id
-          description: "location's id"
-          example: autem
-          required: false
-          schema:
-            type: string
-            description: "location's id"
-            example: autem
+      parameters: []
       responses: {  }
       tags:
         - Endpoints
@@ -116,30 +141,61 @@ paths:
       -
         in: path
         name: id
-        description: 'The ID of the location.'
-        example: 9
+        description: "Optional parameter. location's id"
         required: true
         schema:
           type: integer
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: 4
   /api/proximity/locations:
     get:
       summary: 'Return locations by proximity'
       operationId: returnLocationsByProximity
       description: ''
-      parameters: []
+      parameters:
+        -
+          in: query
+          name: X
+          description: 'coordinate X'
+          example: '23'
+          required: false
+          schema:
+            type: string
+            description: 'coordinate X'
+            example: '23'
+        -
+          in: query
+          name: 'Y'
+          description: 'coordinate Y'
+          example: '50'
+          required: false
+          schema:
+            type: string
+            description: 'coordinate Y'
+            example: '50'
+        -
+          in: query
+          name: hour
+          description: 'look for open locations at this time'
+          example: '12:00'
+          required: false
+          schema:
+            type: string
+            description: 'look for open locations at this time'
+            example: '12:00'
       responses:
-        400:
+        200:
           description: ''
           content:
-            application/json:
+            text/plain:
               schema:
-                type: object
-                example:
-                  error: 'Algum dos parametros X,Y ou Hour não foi informado'
-                properties:
-                  error:
-                    type: string
-                    example: 'Algum dos parametros X,Y ou Hour não foi informado'
+                type: string
+                example: "{\n      'name': 'Bar do Zeca',\n      'status': 'open'\n      'opensAt': 17:00,\n      'closesAt': 00:00,\n      'publicLocation': 0\n  }"
       tags:
         - Endpoints
       security: []

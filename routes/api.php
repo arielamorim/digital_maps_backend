@@ -7,8 +7,6 @@ use Illuminate\Support\Facades\Route;
  * Get all locations
  *
  * This endpoint returns all locations available in the database
- *
- * @responseField locations array with locations
  */
 Route::get('locations', [\App\Http\Controllers\LocationController::class, 'index']);
 
@@ -16,8 +14,6 @@ Route::get('locations', [\App\Http\Controllers\LocationController::class, 'index
  * Get location by id
  *
  * This endpoint returns a location by its id
- *
- * @responseField locations array with locations
  *
  */
 Route::get('locations/{id}', [\App\Http\Controllers\LocationController::class, 'show']);
@@ -40,5 +36,6 @@ Route::delete('locations/{id}', [\App\Http\Controllers\LocationController::class
 /**
  * Show locations by proximity
  *
+ * This endpoint shows locations by proximity and their open status
  */
 Route::get('proximity/locations', [\App\Http\Controllers\LocationController::class, 'proximity']);

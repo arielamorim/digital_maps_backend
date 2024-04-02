@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "b9ceb190-3232-434e-87b5-74293113d5dd",
+        "_postman_id": "6020d50a-fba0-4bc9-9158-9de706fcae8e",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -47,26 +47,9 @@
                     },
                     "response": [
                         {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "x-ratelimit-limit",
-                                    "value": "60"
-                                },
-                                {
-                                    "key": "x-ratelimit-remaining",
-                                    "value": "59"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 204,
-                            "body": "",
+                            "header": [],
+                            "code": 200,
+                            "body": "[{\n      'name': 'Bar do Zeca',\n      'X': 25,\n      'Y': 50,\n      'opensAt': 17:00,\n      'closesAt': 00:00,\n      'publicLocation': 0\n  }] array of locations",
                             "name": ""
                         }
                     ]
@@ -77,21 +60,14 @@
                         "url": {
                             "host": "{{baseUrl}}",
                             "path": "api\/locations\/:id",
-                            "query": [
-                                {
-                                    "key": "id",
-                                    "value": "pariatur",
-                                    "description": "location's id",
-                                    "disabled": false
-                                }
-                            ],
-                            "raw": "{{baseUrl}}\/api\/locations\/:id?id=pariatur",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/locations\/:id",
                             "variable": [
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "9",
-                                    "description": "The ID of the location."
+                                    "value": "4",
+                                    "description": "location's id"
                                 }
                             ]
                         },
@@ -116,7 +92,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\n    'id': 1,\n    'name': 'Bar do Zeca',\n    'X': 25,\n    'Y': 50,\n    'opensAt': 17:00,\n    'closesAt': 00:00\n}",
+                            "body": "{\n    'id': 1,\n    'name': 'Bar do Zeca',\n    'X': 25,\n    'Y': 50,\n    'opensAt': 17:00,\n    'closesAt': 00:00,\n    'publicLocation': 0\n}",
                             "name": ""
                         }
                     ]
@@ -143,7 +119,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"{\":\"aut\"}"
+                            "raw": "{\"name\":\"Restaurante da Lapa\",\"X\":\"56\",\"Y\":\"89\",\"opensAt\":\"11:00\",\"closesAt\":\"21:00\",\"publicLocation\":\"1\"}"
                         },
                         "description": "",
                         "auth": {
@@ -164,8 +140,8 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "5",
-                                    "description": "The ID of the location."
+                                    "value": "3",
+                                    "description": "Location's id"
                                 }
                             ]
                         },
@@ -182,7 +158,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"{\":\"magnam\"}"
+                            "raw": "{\"name\":\"Restaurante da Lapa\",\"X\":\"56\",\"Y\":\"89\",\"opensAt\":\"11:00\",\"closesAt\":\"21:00\",\"publicLocation\":\"1\"}"
                         },
                         "description": "",
                         "auth": {
@@ -193,7 +169,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\n     'name': 'Bar do Zeca',\n     'X': 25,\n     'Y': 50,\n     'opensAt': 17:00,\n     'closesAt': 00:00\n }",
+                            "body": "{\n     'name': 'Bar do Zeca',\n     'X': 25,\n     'Y': 50,\n     'opensAt': 17:00,\n     'closesAt': 00:00,\n     'publicLocation': 0\n }",
                             "name": ""
                         }
                     ]
@@ -204,21 +180,14 @@
                         "url": {
                             "host": "{{baseUrl}}",
                             "path": "api\/locations\/:id",
-                            "query": [
-                                {
-                                    "key": "id",
-                                    "value": "autem",
-                                    "description": "location's id",
-                                    "disabled": false
-                                }
-                            ],
-                            "raw": "{{baseUrl}}\/api\/locations\/:id?id=autem",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/locations\/:id",
                             "variable": [
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "11",
-                                    "description": "The ID of the location."
+                                    "value": "2",
+                                    "description": "location's id"
                                 }
                             ]
                         },
@@ -247,8 +216,27 @@
                         "url": {
                             "host": "{{baseUrl}}",
                             "path": "api\/proximity\/locations",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/proximity\/locations"
+                            "query": [
+                                {
+                                    "key": "X",
+                                    "value": "23",
+                                    "description": "coordinate X",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "Y",
+                                    "value": "50",
+                                    "description": "coordinate Y",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "hour",
+                                    "value": "12%3A00",
+                                    "description": "look for open locations at this time",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/proximity\/locations?X=23&Y=50&hour=12%3A00"
                         },
                         "method": "GET",
                         "header": [
@@ -269,30 +257,9 @@
                     },
                     "response": [
                         {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "x-ratelimit-limit",
-                                    "value": "60"
-                                },
-                                {
-                                    "key": "x-ratelimit-remaining",
-                                    "value": "58"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 400,
-                            "body": "{\"error\":\"Algum dos parametros X,Y ou Hour n\\u00e3o foi informado\"}",
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n      'name': 'Bar do Zeca',\n      'status': 'open'\n      'opensAt': 17:00,\n      'closesAt': 00:00,\n      'publicLocation': 0\n  }",
                             "name": ""
                         }
                     ]
