@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('X');
             $table->integer('Y');
+            $table->boolean('publicLocation');
             $table->time('opensAt')->nullable();
             $table->time('closesAt')->nullable();
             $table->timestamps();

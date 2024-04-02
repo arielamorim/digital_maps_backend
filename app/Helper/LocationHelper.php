@@ -28,7 +28,8 @@ class LocationHelper
                 'name' => $location['name'],
                 'id' => $location['id'],
                 'opensAt' => $location['opensAt'],
-                'closesAt' => $location['closesAt']
+                'closesAt' => $location['closesAt'],
+                'publicLocation' => $location['publicLocation']
                 ]);
         }
 
@@ -52,7 +53,11 @@ class LocationHelper
             $opens = DateTime::createFromFormat('H:i', $location['opensAt']);
             $closes = DateTime::createFromFormat('H:i', $location['closesAt']);
 
-            $locations[$index]['status'] = $time >= $opens && $time <= $closes ? 'open' : 'closed';
+            if( $location['publicLocation'] ) {
+                $locations[$index]['status'] = 'open';
+            } else {
+                $locations[$index]['status'] = $time >= $opens && $time <= $closes ? 'open' : 'closed';
+            }
             $index++;
         }
 

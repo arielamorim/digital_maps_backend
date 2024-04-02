@@ -39,5 +39,6 @@ Route::delete('locations/{id}', [\App\Http\Controllers\LocationController::class
 
 /**
  * Show locations by proximity
+ *
  */
 Route::get('proximity/locations', [\App\Http\Controllers\LocationController::class, 'proximity']);

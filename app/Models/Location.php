@@ -14,6 +14,7 @@ class Location extends Model
         'opensAt',
         'closesAt',
         'X',
-        'Y'
+        'Y',
+        'publicLocation'
     ];
 }

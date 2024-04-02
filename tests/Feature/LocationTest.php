@@ -41,7 +41,7 @@ class LocationTest extends TestCase
         $response->assertStatus(200);
 
         $response->assertJson( function ( AssertableJson $json) use ($location){
-            $json->hasAll(['id','name','X','Y','opensAt','closesAt','created_at','updated_at']);
+            $json->hasAll(['id','name','X','Y','opensAt','closesAt','created_at','updated_at','publicLocation']);
 
             $json->where('id', $location->first()->id );
         });
@@ -58,18 +58,20 @@ class LocationTest extends TestCase
     public function test_create_location_endpoint() {
 
         $location = Location::factory(1)->makeOne()->toArray();
+
         $response = $this->postJson('/api/locations', $location);
 
         $response->assertStatus(201);
 
         $response->assertJson( function ( AssertableJson $json) use ($location){
-            $json->hasAll(['id','name','X','Y','opensAt','closesAt','created_at','updated_at']);
+            $json->hasAll(['id','name','X','Y','opensAt','closesAt','created_at','updated_at','publicLocation']);
 
             $json->where('name', $location['name'] );
             $json->where('X', $location['X'] );
             $json->where('Y', $location['Y'] );
             $json->where('closesAt', $location['closesAt'] );
             $json->where('opensAt', $location['opensAt'] );
+            $json->where('publicLocation', $location['publicLocation'] );
         });
     }
 
@@ -85,7 +87,7 @@ class LocationTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertJson( function ( AssertableJson $json) use ($location){
-            $json->hasAll(['id','name','X','Y','opensAt','closesAt','created_at','updated_at']);
+            $json->hasAll(['id','name','X','Y','opensAt','closesAt','created_at','updated_at','publicLocation']);
 
             $json->where('name', $location['name'] );
             $json->where('opensAt', $location['opensAt'] );

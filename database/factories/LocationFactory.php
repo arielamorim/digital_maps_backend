@@ -22,6 +22,7 @@ class LocationFactory extends Factory
             'Y'     => $this->faker->numberBetween(1, 100),
             'opensAt' => $this->faker->optional()->time('H:i'),
             'closesAt' => $this->faker->optional()->time('H:i'),
+            'publicLocation' => $this->faker->numberBetween(0,1)
         ];
     }
 }
