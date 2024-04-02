@@ -4,10 +4,10 @@ use Knuckles\Scribe\Extracting\Strategies;
 
 return [
     // The HTML <title> for the generated documentation. If this is empty, Scribe will infer it from config('app.name').
-    'title' => null,
+    'title' => "Digital Maps backend",
 
     // A short description of your API. Will be included in the docs webpage, Postman collection and OpenAPI spec.
-    'description' => '',
+    'description' => 'This api manages locations, calculate distances and working hours',
 
     // The base URL displayed in the docs. If this is empty, Scribe will use the value of config('app.url') at generation time.
     // If you're using `laravel` type, you can set this to a dynamic string, like '{{ config("app.tenant_url") }}' to get a dynamic base URL.
@@ -77,22 +77,6 @@ return [
         'html_attributes' => []
     ],
 
-    'try_it_out' => [
-        // Add a Try It Out button to your endpoints so consumers can test endpoints right from their browser.
-        // Don't forget to enable CORS headers for your endpoints.
-        'enabled' => true,
-
-        // The base URL for the API tester to use (for example, you can set this to your staging URL).
-        // Leave as null to use the current app URL when generating (config("app.url")).
-        'base_url' => null,
-
-        // [Laravel Sanctum] Fetch a CSRF token before each request, and add it as an X-XSRF-TOKEN header.
-        'use_csrf' => false,
-
-        // The URL to fetch the CSRF token from (if `use_csrf` is true).
-        'csrf_url' => '/sanctum/csrf-cookie',
-    ],
-
     // How is your API authenticated? This information will be used in the displayed docs, generated examples and response calls.
     'auth' => [
         // Set this to true if ANY endpoints in your API use authentication.
@@ -123,10 +107,8 @@ return [
 
     // Text to place in the "Introduction" section, right after the `description`. Markdown and HTML are supported.
     'intro_text' => <<<INTRO
-This documentation aims to provide all the information you need to work with our API.
+This documentation aims to provide all the information you need to work with Digital Maps API.
 
-<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
-You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
 INTRO
     ,
 

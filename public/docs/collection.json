@@ -9,9 +9,9 @@
         }
     ],
     "info": {
-        "name": "Laravel",
-        "_postman_id": "6020d50a-fba0-4bc9-9158-9de706fcae8e",
-        "description": "",
+        "name": "Digital Maps backend",
+        "_postman_id": "030567d2-2415-45a6-818f-fade932992a0",
+        "description": "This api manages locations, calculate distances and working hours",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [

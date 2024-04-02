@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
-  title: Laravel
-  description: ''
+  title: 'Digital Maps backend'
+  description: 'This api manages locations, calculate distances and working hours'
   version: 1.0.0
 servers:
   -

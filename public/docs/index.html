@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Laravel Documentation</title>
+    <title>Digital Maps backend</title>
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 
@@ -25,12 +25,6 @@
                     body .content .javascript-example code { display: none; }
             </style>
 
-    <script>
-        var tryItOutBaseUrl = "http://localhost";
-        var useCsrf = Boolean();
-        var csrfUrl = "/sanctum/csrf-cookie";
-    </script>
-    <script src="../docs/js/tryitout-4.35.0.js"></script>
 
     <script src="../docs/js/theme-default-4.35.0.js"></script>
 
@@ -108,12 +102,11 @@
     <div class="dark-box"></div>
     <div class="content">
         <h1 id="introduction">Introduction</h1>
+<p>This api manages locations, calculate distances and working hours</p>
 <aside>
     <strong>Base URL</strong>: <code>http://localhost</code>
 </aside>
-<p>This documentation aims to provide all the information you need to work with our API.</p>
-<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
-You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+<p>This documentation aims to provide all the information you need to work with Digital Maps API.</p>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
 <p>This API is not authenticated.</p>
@@ -197,23 +190,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-locations', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-locations"
-                    onclick="tryItOut('GETapi-locations');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-locations"
-                    onclick="cancelTryOut('GETapi-locations');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-locations"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -320,23 +296,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-locations--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-locations--id-"
-                    onclick="tryItOut('GETapi-locations--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-locations--id-"
-                    onclick="cancelTryOut('GETapi-locations--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-locations--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -459,23 +418,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-locations', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-locations"
-                    onclick="tryItOut('POSTapi-locations');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-locations"
-                    onclick="cancelTryOut('POSTapi-locations');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-locations"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
@@ -667,23 +609,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('PUTapi-locations--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PUTapi-locations--id-"
-                    onclick="tryItOut('PUTapi-locations--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PUTapi-locations--id-"
-                    onclick="cancelTryOut('PUTapi-locations--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PUTapi-locations--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-darkblue">PUT</small>
@@ -854,23 +779,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('DELETEapi-locations--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-locations--id-"
-                    onclick="tryItOut('DELETEapi-locations--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-locations--id-"
-                    onclick="cancelTryOut('DELETEapi-locations--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-locations--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-red">DELETE</small>
@@ -995,23 +903,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-proximity-locations', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-proximity-locations"
-                    onclick="tryItOut('GETapi-proximity-locations');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-proximity-locations"
-                    onclick="cancelTryOut('GETapi-proximity-locations');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-proximity-locations"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
