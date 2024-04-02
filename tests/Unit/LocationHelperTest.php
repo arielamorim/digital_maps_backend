@@ -8,11 +8,6 @@ use PHPUnit\Framework\TestCase;
 class LocationHelperTest extends TestCase
 {
 
-    /**
-     * Teste para a função `orderByProximity`.
-     *
-     * @return void
-     */
     public function test_order_by_proximity()
     {
         $reference = ['X' => 5, 'Y' => 10];

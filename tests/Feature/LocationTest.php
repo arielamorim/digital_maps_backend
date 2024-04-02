@@ -55,6 +55,7 @@ class LocationTest extends TestCase
         $response->assertStatus(204);
 
     }
+
     public function test_create_location_endpoint() {
 
         $location = Location::factory(1)->makeOne()->toArray();
@@ -106,6 +107,18 @@ class LocationTest extends TestCase
         $response->assertStatus(204);
     }
 
+    public function test_update_bad_request()
+    {
+        $location = [
+            'name'=>'Restaurante',
+            'opensAt'=>'12:00'
+        ];
+
+        $response = $this->putJson('/api/locations/', $location);
+
+        $response->assertStatus(405);
+    }
+
     public function test_delete_location()
     {
         Location::factory(1)->createOne();
@@ -120,6 +133,13 @@ class LocationTest extends TestCase
         $response = $this->deleteJson('/api/locations/1');
 
         $response->assertStatus(204);
+    }
+
+    public function test_delete_bad_request()
+    {
+        $response = $this->deleteJson('/api/locations/');
+
+        $response->assertStatus(405);
     }
 
     public function test_get_locations_by_proximity()
@@ -142,4 +162,5 @@ class LocationTest extends TestCase
         $response->assertStatus(400);
 
     }
+
 }

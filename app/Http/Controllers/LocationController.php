@@ -89,6 +89,7 @@ class LocationController extends Controller
     public function show($id)
     {
         try{
+
             $location = $this->location->find( $id );
 
             $status = empty( $location) == 1 ? 204 : 200;
@@ -123,6 +124,7 @@ class LocationController extends Controller
     public function update(Request $request, $id)
     {
         try{
+
             $location = $this->location->find($id);
 
             $status = 200;
